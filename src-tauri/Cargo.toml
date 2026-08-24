@@ -1,6 +1,6 @@
 [package]
 name = "enhanced-presence"
-version = "0.1.0"
+version = "0.2.0"
 description = "Lightweight, fast, privacy-first, and powerful Discord client."
 authors = ["Wixonic"]
 edition = "2021"

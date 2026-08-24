@@ -3,7 +3,7 @@
 	"displayName": "Enhanced Presence",
 	"description": "Lightweight, fast, privacy-first, Discord client for Enhanced Rich Presence.",
 	"author": "Wixonic <contact@wixonic.fr> (https://wixonic.fr)",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"license": "Wixonic Non-Commercial License",
 	"repository": "github:Wixonic/Enhanced-Presence",
 	"scripts": {

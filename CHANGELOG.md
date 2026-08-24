@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/Wixonic/Enhanced-Presence/compare/v0.3.0...v0.4.0) (2026-08-24)
+
+
+### Features
+
+* Improve display ([edb89b2](https://github.com/Wixonic/Enhanced-Presence/commit/edb89b20e4eb0a64b9f4156133e7f0f09b9a70ea))
+
 ## [0.3.0](https://github.com/Wixonic/Enhanced-Presence/compare/v0.2.0...v0.3.0) (2026-08-24)
 
 

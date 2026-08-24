@@ -5,29 +5,22 @@ import { discordClient } from "/main.ts";
 const APPLE_MUSIC_ICON_URL = "https://raw.githubusercontent.com/Wixonic/Enhanced-Presence/Default/src/assets/apple_music.png";
 const APPLICATION_ID = "1541405571658555442";
 
-export const getPrimaryArtist = (artistName?: string): string => {
-	if (!artistName || artistName === "Unknown Artist") return "";
-	const primary = artistName.split(/[,&/]| feat\.? | ft\.? | x /i)[0].trim();
-	return primary || artistName;
-};
-
 const artworkCache = new Map<string, string | null>();
 const mediaProxyCache = new Map<string, string>();
 
 const fetchAlbumArtwork = async (albumName?: string, artistName?: string, trackName?: string): Promise<string | null> => {
-	const primaryArtist = getPrimaryArtist(artistName);
 	const target = albumName || trackName || "";
 	if (!target) return null;
 
-	const key = `${target}|||${primaryArtist}`;
+	const key = `${target}|||${artistName}`;
 	if (artworkCache.has(key)) return artworkCache.get(key)!;
 
 	const queries: string[] = [];
 
-	if (primaryArtist && target) queries.push(`${primaryArtist} ${target}`);
+	if (artistName && target) queries.push(`${artistName} ${target}`);
 	if (target) queries.push(target);
 	if (trackName && trackName !== target) {
-		if (primaryArtist) queries.push(`${primaryArtist} ${trackName}`);
+		if (artistName) queries.push(`${artistName} ${trackName}`);
 		queries.push(trackName);
 	}
 
@@ -203,17 +196,12 @@ class PresenceManager {
 				: (proxied.get(APPLE_MUSIC_ICON_URL) || "apple_music");
 			const smallImage = proxied.get(APPLE_MUSIC_ICON_URL) || "apple_music";
 
-			const primaryArtist = getPrimaryArtist(track.artist);
-			const titleDisplay = primaryArtist && !track.name?.toLowerCase().includes(primaryArtist.toLowerCase())
-				? `${primaryArtist} - ${track.name}`
-				: (track.name || "Unknown Track");
-
 			const musicActivity: any = {
 				application_id: APPLICATION_ID,
-				name: titleDisplay,
+				name: `${track.name ?? "Unknown Track"}`,
 				type: 2,
 				details: track.name || "Unknown Track",
-				state: primaryArtist || track.artist || "Unknown Artist",
+				state: track.artist || "Unknown Artist",
 				timestamps: {
 					start: startMs,
 					end: endMs
@@ -224,10 +212,6 @@ class PresenceManager {
 					small_image: smallImage,
 					small_text: "Apple Music"
 				},
-				party: {
-					id: `apple_music:${discordClient.id ?? "user"}`
-				},
-				sync_id: `apple_music_${track.name}_${track.artist}`,
 				flags: 48
 			};
 

@@ -4,7 +4,6 @@ import { invoke } from "@tauri-apps/api/core";
 import { store, type PresenceMode } from "/scripts/lib/store.ts";
 import { createAvatar } from "/components/app/lib/avatar.ts";
 import { createDisplayName } from "/components/app/lib/nameStyle.ts";
-import { getPrimaryArtist } from "/scripts/services/presence.ts";
 import { discordClient } from "/main.ts";
 
 const formatTime = (seconds: number): string => {
@@ -92,14 +91,9 @@ export const renderApp = (container: HTMLElement): (() => void) => {
 			musicProgressContainer.style.display = "none";
 		} else if (isPlaying) {
 			const track = state.currentTrack!;
-			const primaryArtist = getPrimaryArtist(track.artist);
-			const titleDisplay = primaryArtist && !track.name?.toLowerCase().includes(primaryArtist.toLowerCase())
-				? `${primaryArtist} - ${track.name}`
-				: (track.name || "Unknown Track");
-
 			musicCard.classList.add("playing");
-			trackTitle.textContent = titleDisplay;
-			trackArtist.textContent = primaryArtist ? (track.album ? `${primaryArtist} — ${track.album}` : primaryArtist) : "Playing";
+			trackTitle.textContent = track.name || "Unknown Track";
+			trackArtist.textContent = track.artist || "Unknown Artist";
 
 			if (track.artworkUrl) {
 				musicArtImg.src = track.artworkUrl;

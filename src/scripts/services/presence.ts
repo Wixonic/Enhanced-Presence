@@ -210,9 +210,9 @@ class PresenceManager {
 
 			const musicActivity: any = {
 				application_id: APPLICATION_ID,
-				name: "Apple Music",
+				name: titleDisplay,
 				type: 2,
-				details: titleDisplay,
+				details: track.name || "Unknown Track",
 				state: primaryArtist || track.artist || "Unknown Artist",
 				timestamps: {
 					start: startMs,

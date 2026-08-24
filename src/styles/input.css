@@ -1,0 +1,49 @@
+.input {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	width: 100%;
+
+	cursor: text;
+}
+
+.input label {
+	align-self: flex-start;
+
+	color: hsla(var(--text), 70%);
+	font-size: 0.85rem;
+	font-weight: 500;
+
+	cursor: pointer;
+}
+
+.input input {
+	width: 100%;
+
+	background: hsl(var(--background-front));
+
+	color: hsl(var(--text));
+	font-size: 0.9rem;
+
+	border: 1px solid hsla(var(--blurple), 20%);
+	border-radius: 0.75rem;
+
+	padding: 0.75rem 1rem;
+
+	outline: none;
+
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, var(--loadable-transition, none);
+}
+
+.input input:focus {
+	box-shadow: 0 0 0 2px hsla(var(--blurple), 20%);
+
+	border-color: hsl(var(--blurple));
+}
+
+.input a {
+	align-self: flex-start;
+
+	font-size: 0.75rem;
+}

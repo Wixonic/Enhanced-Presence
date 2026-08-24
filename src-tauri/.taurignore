@@ -1,0 +1,5 @@
+icons/*.sb-*
+icons/tmp.*
+icons/icon.icns
+icons/Assets.car
+icons/partial.plist

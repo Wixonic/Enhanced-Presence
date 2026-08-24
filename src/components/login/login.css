@@ -1,0 +1,32 @@
+body[state="login"] {
+	background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--blurple)));
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	min-height: 100vh;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background: hsl(var(--background));
+
+	width: fit-content;
+	height: fit-content;
+
+	border: 0.1rem solid hsla(var(--blurple), 40%);
+	border-radius: 1.5rem;
+
+	box-shadow: 0 0.5rem 1.5rem hsla(var(--background), 70%);
+
+	margin: auto;
+	padding: 2rem;
+}

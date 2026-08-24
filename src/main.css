@@ -1,0 +1,121 @@
+@import url("/styles/button.css");
+@import url("/styles/divider.css");
+@import url("/styles/font.css");
+@import url("/styles/input.css");
+@import url("/styles/link.css");
+@import url("/styles/tooltip.css");
+
+@import url("/components/login/login.css");
+@import url("/components/app/app.css");
+
+:root {
+	--background: 225, 0%, 0%;
+	--background-front: 225, 6%, 13%;
+
+	--text: 0, 0%, 100%;
+
+	--blurple: 235, 86%, 65%;
+	--blurple-hexa: #5865F2;
+
+	--warning: 40, 100%, 60%;
+	--error: 10, 100%, 50%;
+
+	--text-link: color-mix(in oklab, hsl(var(--blurple)) 100%, hsl(var(--text)) 50%);
+
+	--palette-none: 0, 0%, 0%;
+	--palette-cobalt: 225, 100%, 38%;
+
+	--font-family: "Open Sans", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+	flex-shrink: 0;
+
+	color: inherit;
+	font-family: inherit;
+
+	box-sizing: border-box;
+
+	overflow: hidden;
+	overscroll-behavior: contain;
+	scrollbar-color: inherit;
+
+	-webkit-appearance: none;
+	appearance: none;
+
+	pointer-events: inherit;
+	-webkit-user-select: inherit;
+	user-select: inherit;
+
+	cursor: inherit;
+	caret-color: inherit;
+	outline: none;
+
+	-webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+	display: flex;
+	flex-direction: column;
+
+	position: relative;
+
+	min-height: 100vh;
+
+	background: hsl(var(--background));
+
+	color: hsl(var(--text));
+	font-family: var(--font-family);
+
+	cursor: default;
+
+	-webkit-user-select: none;
+	user-select: none;
+
+	margin: 0;
+	padding: 0;
+
+	overscroll-behavior: none;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.loadable>* {
+	--loadable-transition: opacity 0.3s ease-in-out, filter 0.1s ease-in-out;
+	transition: var(--loadable-transition);
+}
+
+.loadable.loading {
+	cursor: default;
+
+	pointer-events: none;
+}
+
+.loadable.loading>* {
+	opacity: 0.3;
+
+	filter: blur(1rem);
+}
+
+[data-tauri-drag-region] {
+	user-select: none;
+}
+
+.icon {
+	width: 1.2em;
+	height: 1.2em;
+
+	vertical-align: -0.225em;
+
+	margin: 0;
+	padding: 0;
+}
+
+.icon img,
+.icon svg {
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,118 @@
+<div class="app-container" data-tauri-drag-region>
+	<header class="profile-header" data-tauri-drag-region>
+		<div class="user-info">
+			<div class="avatar-wrapper">
+				<div class="avatar-placeholder"></div>
+			</div>
+			<div class="user-details">
+				<div class="display-name-container">
+					<span class="display-name">Loading...</span>
+				</div>
+				<div class="username-tag">@loading</div>
+			</div>
+		</div>
+		<div class="connection-badge">
+			<span class="status-dot"></span>
+			<span class="status-text">Connected</span>
+		</div>
+	</header>
+
+	<main class="settings-content">
+		<section class="settings-section presence-mode-section">
+			<label class="section-title">Presence Mode</label>
+			<div class="mode-options">
+				<label class="mode-card" data-mode="dynamic">
+					<input type="radio" name="presence-mode" value="dynamic" />
+					<div class="mode-info">
+						<span class="mode-name">⚡ Dynamic</span>
+						<span class="mode-desc">Idle when active (Music / Status), Invisible otherwise</span>
+					</div>
+				</label>
+
+				<div class="classic-modes">
+					<label class="mode-chip" data-mode="online">
+						<input type="radio" name="presence-mode" value="online" />
+						<span class="dot online"></span>
+						<span>Online</span>
+					</label>
+					<label class="mode-chip" data-mode="idle">
+						<input type="radio" name="presence-mode" value="idle" />
+						<span class="dot idle"></span>
+						<span>Idle</span>
+					</label>
+					<label class="mode-chip" data-mode="dnd">
+						<input type="radio" name="presence-mode" value="dnd" />
+						<span class="dot dnd"></span>
+						<span>DND</span>
+					</label>
+					<label class="mode-chip" data-mode="invisible">
+						<input type="radio" name="presence-mode" value="invisible" />
+						<span class="dot invisible"></span>
+						<span>Invisible</span>
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="settings-section music-section">
+			<div class="section-header">
+				<div class="section-title-group">
+					<span class="section-title">Apple Music</span>
+					<span class="section-subtitle">Spotify-like Rich Presence</span>
+				</div>
+				<label class="toggle-switch">
+					<input type="checkbox" id="apple-music-toggle" />
+					<span class="slider"></span>
+				</label>
+			</div>
+
+			<div class="music-card" id="music-card">
+				<div class="music-art-wrapper">
+					<img class="music-art hidden" id="music-art-img" src="" alt="Artwork" />
+					<div class="music-art-fallback" id="music-art-fallback">🎵</div>
+				</div>
+				<div class="music-content">
+					<div class="music-meta">
+						<div class="track-title">Not playing</div>
+						<div class="track-artist">Apple Music is stopped</div>
+					</div>
+					<div class="music-progress-container" id="music-progress-container">
+						<div class="music-progress-track">
+							<div class="music-progress-bar" id="music-progress-bar"></div>
+						</div>
+						<div class="music-time">
+							<span id="music-time-current">0:00</span>
+							<span id="music-time-total">0:00</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="settings-section custom-status-section">
+			<div class="section-header">
+				<div class="section-title-group">
+					<span class="section-title">Custom Status</span>
+					<span class="section-subtitle">Set a custom status text & emoji</span>
+				</div>
+				<label class="toggle-switch">
+					<input type="checkbox" id="custom-status-toggle" />
+					<span class="slider"></span>
+				</label>
+			</div>
+
+			<div class="custom-status-inputs">
+				<input type="text" id="custom-status-emoji" class="emoji-input" placeholder="💬" maxlength="4" />
+				<input type="text" id="custom-status-text" class="text-input" placeholder="What's on your mind?" />
+			</div>
+		</section>
+	</main>
+
+	<footer class="app-footer">
+		<button id="logout-btn" class="footer-btn danger">Logout</button>
+		<div class="footer-right">
+			<button id="hide-btn" class="footer-btn secondary">Close Window</button>
+			<button id="quit-btn" class="footer-btn">Quit</button>
+		</div>
+	</footer>
+</div>

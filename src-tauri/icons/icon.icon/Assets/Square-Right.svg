@@ -1,0 +1,8 @@
+<svg width="1026" height="1026" viewBox="0 0 1026 1026" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="split-right">
+      <polygon points="663.86,-100 1126,-100 1126,1126 362.14,1126" />
+    </clipPath>
+  </defs>
+  <rect width="1026" height="1026" fill="currentColor" clip-path="url(#split-right)" />
+</svg>

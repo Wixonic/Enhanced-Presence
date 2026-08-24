@@ -1,0 +1,36 @@
+.icon.animated {
+	position: relative;
+
+	display: inline-block;
+
+	opacity: 1;
+
+	overflow: hidden;
+
+	transition: opacity 0.3s linear;
+}
+
+.icon.animated::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+
+	background-image: var(--static-icon, transparent);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	opacity: 1;
+
+	transition: opacity 0.3s linear;
+}
+
+.icon.animated:hover,
+nav.you-bar:hover .icon.animated {
+	opacity: 1;
+}
+
+.icon.animated.playing::after {
+	opacity: 0;
+
+	transition: opacity 0.1s ease-in-out;
+}

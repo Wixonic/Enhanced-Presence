@@ -1,0 +1,26 @@
+hr {
+	border: none;
+	border-bottom: 1px solid hsla(var(--text), 10%);
+}
+
+.divider {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	width: 100%;
+
+	margin: 1.5rem 0;
+}
+
+.divider hr {
+	flex: 1;
+}
+
+.divider span {
+	color: hsla(var(--text), 40%);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}

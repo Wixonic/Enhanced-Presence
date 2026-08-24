@@ -1,0 +1,32 @@
+{
+	"name": "enhanced-presence",
+	"displayName": "Enhanced Presence",
+	"description": "Lightweight, fast, privacy-first, Discord client for Enhanced Rich Presence.",
+	"author": "Wixonic <contact@wixonic.fr> (https://wixonic.fr)",
+	"version": "0.1.0",
+	"license": "Wixonic Non-Commercial License",
+	"repository": "github:Wixonic/Enhanced-Presence",
+	"scripts": {
+		"dev": "tsc --noEmit && node build.mjs --serve",
+		"build": "tsc --noEmit && node build.mjs",
+		"tauri": "tauri",
+		"icon:compile": "actool src-tauri/icons/icon.icon --compile src-tauri/icons --app-icon icon --target-device mac --platform macosx --minimum-deployment-target 26.0 --output-partial-info-plist src-tauri/icons/partial.plist"
+	},
+	"dependencies": {
+		"@tauri-apps/api": "^2",
+		"@tauri-apps/plugin-http": "^2.5.9",
+		"@tauri-apps/plugin-opener": "^2",
+		"@tauri-apps/plugin-websocket": "^2.4.2",
+		"discord-protos": "^1.2.239"
+	},
+	"devDependencies": {
+		"@tauri-apps/cli": "^2",
+		"esbuild": "^0.25.0",
+		"typescript": "~5.6.2"
+	},
+	"type": "module",
+	"private": true,
+	"allowScripts": {
+		"esbuild@0.25.12": true
+	}
+}

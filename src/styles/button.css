@@ -1,0 +1,9 @@
+button, .loadable button {
+	cursor: pointer;
+
+	transition: transform 0.2s ease-in-out, var(--loadable-transition, none);
+}
+
+button:hover {
+	transform: scale(1.05);
+}

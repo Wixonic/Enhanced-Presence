@@ -2,18 +2,8 @@ import { invoke } from "@tauri-apps/api/core";
 import { store, type AppleMusicTrack, type PresenceStatus } from "/scripts/lib/store.ts";
 import { discordClient } from "/main.ts";
 
-const APPLE_MUSIC_ICON_URL = "https://raw.githubusercontent.com/Wixonic/Mercury/Default/src/assets/icons/apple_music.png";
-const APPLE_MUSIC_FALLBACK_ICON = "https://raw.githubusercontent.com/Wixonic/WixiBot-Local/Default/plugins/app/WixiBot%20Extension/Resources/images/icon-256.png";
-const APPLICATION_ID = "846536552416903199";
-
-const cleanText = (text: string): string => {
-	return text
-		.replace(/\[[^\]]*\]/g, " ")
-		.replace(/\([^)]*(official|audio|video|lyrics|hd|4k|remastered)[^)]*\)/gi, " ")
-		.replace(/\.(mp3|m4a|flac|wav)$/i, "")
-		.replace(/\s+/g, " ")
-		.trim();
-};
+const APPLE_MUSIC_ICON_URL = "https://raw.githubusercontent.com/Wixonic/Enhanced-Presence/Default/src/assets/apple_music.png";
+const APPLICATION_ID = "1541405571658555442";
 
 export const getPrimaryArtist = (artistName?: string): string => {
 	if (!artistName || artistName === "Unknown Artist") return "";
@@ -32,15 +22,13 @@ const fetchAlbumArtwork = async (albumName?: string, artistName?: string, trackN
 	const key = `${target}|||${primaryArtist}`;
 	if (artworkCache.has(key)) return artworkCache.get(key)!;
 
-	const cleaned = cleanText(target);
 	const queries: string[] = [];
 
-	if (primaryArtist && cleaned) queries.push(`${primaryArtist} ${cleaned}`);
-	if (cleaned) queries.push(cleaned);
+	if (primaryArtist && target) queries.push(`${primaryArtist} ${target}`);
+	if (target) queries.push(target);
 	if (trackName && trackName !== target) {
-		const cleanedTrack = cleanText(trackName);
-		if (primaryArtist) queries.push(`${primaryArtist} ${cleanedTrack}`);
-		queries.push(cleanedTrack);
+		if (primaryArtist) queries.push(`${primaryArtist} ${trackName}`);
+		queries.push(trackName);
 	}
 
 	for (const q of queries) {
@@ -206,14 +194,14 @@ class PresenceManager {
 			const startMs = this.lastPlaybackStartMs;
 			const endMs = durationSec > 0 ? startMs + Math.floor(durationSec * 1000) : startMs + 180000;
 
-			const urlsToProxy: string[] = [APPLE_MUSIC_ICON_URL, APPLE_MUSIC_FALLBACK_ICON];
+			const urlsToProxy: string[] = [APPLE_MUSIC_ICON_URL];
 			if (track.artworkUrl) urlsToProxy.push(track.artworkUrl);
 
 			const proxied = await resolveMediaProxy(urlsToProxy);
 			const largeImage = track.artworkUrl
 				? (proxied.get(track.artworkUrl) || track.artworkUrl)
-				: (proxied.get(APPLE_MUSIC_ICON_URL) || proxied.get(APPLE_MUSIC_FALLBACK_ICON) || "apple_music");
-			const smallImage = proxied.get(APPLE_MUSIC_ICON_URL) || proxied.get(APPLE_MUSIC_FALLBACK_ICON) || "apple_music";
+				: (proxied.get(APPLE_MUSIC_ICON_URL) || "apple_music");
+			const smallImage = proxied.get(APPLE_MUSIC_ICON_URL) || "apple_music";
 
 			const primaryArtist = getPrimaryArtist(track.artist);
 			const titleDisplay = primaryArtist && !track.name?.toLowerCase().includes(primaryArtist.toLowerCase())

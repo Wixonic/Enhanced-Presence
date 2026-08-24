@@ -1,9 +1,8 @@
 # Enhanced Presence
-> Lightweight, fast, privacy-first, Discord client for Enhanced Rich Presence
+> Lightweight, fast, privacy-first, mini-Discord client for Enhanced Rich Presence
 
 [![Latest stable release](https://img.shields.io/github/v/release/Wixonic/Enhanced-Presence?display_name=tag&label=Latest%20stable%20release)](https://github.com/Wixonic/Enhanced-Presence/releases) [![Latest release](https://img.shields.io/github/v/tag/Wixonic/Enhanced-Presence?display_name=tag&label=Latest%20pre-release)](https://github.com/Wixonic/Enhanced-Presence/tags)<br />
 
-[![Wakatime](https://wakatime.com/badge/github/Wixonic/Enhanced-Presence.svg?style=flat)](https://wakatime.com/badge/github/Wixonic/Enhanced-Presence)
 [![Contributors](https://img.shields.io/github/contributors/Wixonic/Enhanced-Presence?color=%2308F&label=Contributors)](https://github.com/Wixonic/Enhanced-Presence/graphs/contributors)
 [![License](https://img.shields.io/badge/License-Wixonic%20Non--Commercial%20License-%23555.svg)](https://github.com/Wixonic/Enhanced-Presence/blob/Default/LICENSE)
 [![Discord](https://img.shields.io/discord/1020663521530351627?logo=discord&logoColor=94ABFC&label=Discord&color=7289DA)](https://go.wixonic.fr/discord)
